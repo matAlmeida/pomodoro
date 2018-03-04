@@ -1,6 +1,6 @@
 # Awesome Project
 
-> Descrição do projeto
+> A Simple pomodoro Timer, plays a sound when the timer is over
 
 # Author
 
