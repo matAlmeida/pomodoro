@@ -23,11 +23,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pomodoro: 1800,
-      longBreak: 900,
-      shortBreak: 300
+      timer: [1800, 900, 300],
+      currentTimer: 0
     };
   }
+
+  async pomodoro() {
+    if (this.state.currentTimer !== 0) await this.setState({ currentTimer: 0 });
+    this.refs.child.restartTimer();
+  }
+
+  async longBreak() {
+    if (this.state.currentTimer !== 1) await this.setState({ currentTimer: 1 });
+    this.refs.child.restartTimer();
+  }
+
+  async shortBreak() {
+    if (this.state.currentTimer !== 2) await this.setState({ currentTimer: 2 });
+    this.refs.child.restartTimer();
+  }
+
   render() {
     return (
       <div className="App">
@@ -42,17 +57,29 @@ class App extends Component {
         <div style={{ marginTop: 20 }}>
           <Grid container spacing={24}>
             <Grid item xs={12} sm={4}>
-              <Button variant="raised" color="primary">
+              <Button
+                onClick={this.pomodoro.bind(this)}
+                variant="raised"
+                color="primary"
+              >
                 Pomodoro
               </Button>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Button variant="raised" color="primary">
+              <Button
+                onClick={this.longBreak.bind(this)}
+                variant="raised"
+                color="primary"
+              >
                 Long Break
               </Button>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Button variant="raised" color="primary">
+              <Button
+                onClick={this.shortBreak.bind(this)}
+                variant="raised"
+                color="primary"
+              >
                 Short Break
               </Button>
             </Grid>
@@ -62,7 +89,10 @@ class App extends Component {
         <div style={{ padding: 20 }}>
           <Paper elevation={4}>
             <Typography variant="display4" gutterBottom>
-              <Countdown seconds={this.state.pomodoro} />
+              <Countdown
+                ref="child"
+                seconds={this.state.timer[this.state.currentTimer]}
+              />
             </Typography>
           </Paper>
         </div>
