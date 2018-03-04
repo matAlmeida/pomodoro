@@ -3,16 +3,31 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
 
+import Countdown from './Countdown';
 import './App.css';
 
-const styles = {
-  root: {
-    flexGrow: 1
-  }
-};
+const styles = (theme) => ({
+  root: theme.mixins.gutters({
+    flexGrow: 1,
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: theme.spacing.unit * 3
+  })
+});
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pomodoro: 1800,
+      longBreak: 900,
+      shortBreak: 300
+    };
+  }
   render() {
     return (
       <div className="App">
@@ -23,6 +38,34 @@ class App extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
+
+        <div style={{ marginTop: 20 }}>
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={4}>
+              <Button variant="raised" color="primary">
+                Pomodoro
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Button variant="raised" color="primary">
+                Long Break
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Button variant="raised" color="primary">
+                Short Break
+              </Button>
+            </Grid>
+          </Grid>
+        </div>
+
+        <div style={{ padding: 20 }}>
+          <Paper elevation={4}>
+            <Typography variant="display4" gutterBottom>
+              <Countdown seconds={this.state.pomodoro} />
+            </Typography>
+          </Paper>
+        </div>
       </div>
     );
   }
