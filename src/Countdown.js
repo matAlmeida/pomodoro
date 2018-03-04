@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'material-ui/Button';
+import sound from './egg-timer-sound.mp3';
 
 class Countdown extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Countdown extends React.Component {
     this.stopTimer = this.stopTimer.bind(this);
     this.restartTimer = this.restartTimer.bind(this);
     this.countDown = this.countDown.bind(this);
+    this.timerSound = new Audio(sound);
   }
 
   secondsToTime(secs) {
@@ -65,6 +67,7 @@ class Countdown extends React.Component {
 
     // Check if we're at zero.
     if (seconds === 0) {
+      this.timerSound.play();
       clearInterval(this.timer);
     }
   }
