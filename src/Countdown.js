@@ -29,6 +29,11 @@ class Countdown extends React.Component {
     return obj;
   }
 
+  componentDidUpdate() {
+    document.title =
+      '(' + this.state.time.m + ':' + this.state.time.s + ') | Pomodoro Timer';
+  }
+
   componentDidMount() {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
     this.setState({ time: timeLeftVar });
