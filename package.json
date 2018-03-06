@@ -1,15 +1,11 @@
 {
   "name": "pomodoro",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.0-alpha",
+  "private": false,
   "description": "Pomodoro Timer",
   "author": "Matheus Almeida <mat.almeida@live.com>",
   "homepage": "https://github.com/matAlmeida/pomodoro#readme",
-  "keywords": [
-    "pomodoro",
-    "pomodoro-timer",
-    "pomodorotimer"
-  ],
+  "keywords": ["pomodoro", "pomodoro-timer", "pomodorotimer"],
   "scripts": {
     "lint": "eslint ./src/**/*.js",
     "start": "react-scripts start",
@@ -35,8 +31,6 @@
   "devDependencies": {
     "eslint": "4.18.2",
     "eslint-config-prettier": "2.9.0",
-    "eslint-config-react-app": "2.1.0",
-    "eslint-plugin-import": "2.9.0",
     "eslint-plugin-prettier": "2.6.0",
     "prettier": "1.11.1"
   },
