@@ -33,7 +33,11 @@ class Countdown extends React.Component {
 
   componentDidUpdate() {
     document.title =
-      '(' + this.state.time.m + ':' + this.state.time.s + ') | Pomodoro Timer';
+      '(' +
+      (this.state.time.m < 10 ? '0' + this.state.time.m : this.state.time.m) +
+      ':' +
+      (this.state.time.s < 10 ? '0' + this.state.time.s : this.state.time.s) +
+      ') | Pomodoro Timer';
   }
 
   componentDidMount() {
@@ -51,10 +55,12 @@ class Countdown extends React.Component {
 
   restartTimer() {
     this.stopTimer();
+    let seconds = this.props.seconds;
     this.setState({
-      seconds: this.props.seconds
+      time: this.secondsToTime(seconds),
+      seconds: seconds
     });
-    this.timer = setInterval(this.countDown, 1000);
+    // this.timer = setInterval(this.countDown, 1000);
   }
 
   countDown() {
@@ -75,7 +81,10 @@ class Countdown extends React.Component {
   render() {
     return (
       <div style={{ marginTop: 20 }}>
-        {this.state.time.m}:{this.state.time.s}
+        {this.state.time.m < 10 ? '0' + this.state.time.m : this.state.time.m}:{this
+          .state.time.s < 10
+          ? '0' + this.state.time.s
+          : this.state.time.s}
         <div>
           <Button onClick={this.startTimer} color="primary">
             Start

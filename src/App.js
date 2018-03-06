@@ -74,8 +74,9 @@ class App extends Component {
     });
   };
 
-  changeTimer() {
-    this.setState({ timer: this.state.newTimer.map((val) => val * 60) });
+  async changeTimer() {
+    await this.setState({ timer: this.state.newTimer.map((val) => val * 60) });
+    this.refs.child.restartTimer();
     this.closeModal();
   }
 
