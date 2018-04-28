@@ -9,15 +9,13 @@
 * Download the repository
 * Go to the pomodoro folder and run:
 
-> * $ `npm install`
+> * $ `npm install` // to install all dependencies
 
-To use the developer mode with hot-reload
+> * $ `npm run build` // to build production optimized version
 
-> * $ `npm start`
+> * $ `npm start` // to serve the production build folder
 
-To build the static page
-
-> * $ `npm build`
+> * $ `npm run dev` // to run hot reload develompment server
 
 # Author
 
