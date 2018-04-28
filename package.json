@@ -4,7 +4,7 @@
   "private": false,
   "description": "Pomodoro Timer",
   "author": "Matheus Almeida <mat.almeida@live.com>",
-  "homepage": "https://github.com/matAlmeida/pomodoro#readme",
+  "homepage": "https://shrouded-mesa-35914.herokuapp.com/",
   "keywords": ["pomodoro", "pomodoro-timer", "pomodorotimer"],
   "scripts": {
     "lint": "eslint ./src/**/*.js",
