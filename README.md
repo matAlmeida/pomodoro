@@ -1,6 +1,7 @@
 # Pomodoro Timer
 
-# [DEMO](https://shrouded-mesa-35914.herokuapp.com/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/130eea1e-bfa1-4fe1-b2b3-87ea593db7e1/deploy-status)](https://app.netlify.com/sites/mat-pomodoro/deploys)
+# [DEMO](https://mat-pomodoro.netlify.com/)
 
 > A Simple pomodoro Timer, plays a sound when the timer is over
 
